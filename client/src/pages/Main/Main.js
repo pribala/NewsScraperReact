@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../../components/Grid';
 import { List, ListItem } from '../../components/List';
 import { Input, TextArea, FormBtn } from '../../components/Form';
+import * as moment from 'moment';
 
 class Main extends Component {
   state = {
@@ -40,7 +41,7 @@ class Main extends Component {
   saveArticle = articleInfo => {
     API.saveArticle(articleInfo)
       .then(res => {
-        console.log('hey it saved');
+        console.log('Saved article successfully');
       })
       .catch(err => {
         console.log(err);
@@ -105,8 +106,8 @@ class Main extends Component {
                       <strong>{article.headline.main}</strong>
                     </a>
                     <br/>
-                    <span>Published on {article.pub_date}</span>
-                    <button className="btn btn-primary" style={{float: "right"}} onClick={() => this.saveArticle({
+                    <span>Published on {moment(article.pub_date).format("MM-DD-YYYY")}</span>
+                    <button className="btn btn-dark" style={{float: "right"}} onClick={() => this.saveArticle({
                       title: article.headline.main,
                       url: article.web_url, 
                       date: article.pub_date

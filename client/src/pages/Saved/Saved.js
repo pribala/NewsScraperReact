@@ -4,6 +4,7 @@ import { Col, Row, Container } from '../../components/Grid';
 import {List, ListItem} from '../../components/List';
 import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
+import * as moment from 'moment';
 
 class Saved extends Component {
   state = {
@@ -45,9 +46,9 @@ class Saved extends Component {
                       <strong>{article.title}</strong>
                     </a>
                     <br />
-                    <span>Published on {article.date}</span>
+                    <span>Published on { moment(article.date).format("MM-DD-YYYY")}</span>
                     <button
-                      className="btn btn-danger"
+                      className="btn btn-warning"
                       style={{ float: 'right' }}
                       onClick={() => this.deleteArticle(article._id)}
                     >

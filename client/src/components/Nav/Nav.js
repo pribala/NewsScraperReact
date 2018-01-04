@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./Nav.css";
 
 const Nav = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    <Link className="navbar-brand" to="/">
-      NYT React App
+    <Link className="navbar-brand brand" to="/">
+      News Scraper
     </Link>
     <button
       className="navbar-toggler"
